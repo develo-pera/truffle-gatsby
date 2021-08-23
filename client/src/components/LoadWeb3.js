@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import getWeb3 from "../lib/helpers/getWeb3";
 
 const INIT_STATE = {

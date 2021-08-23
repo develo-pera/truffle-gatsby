@@ -1,5 +1,5 @@
-import * as React from "react"
-import {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "gatsby";
 import {Web3Context} from "../components/LoadWeb3";
 
 // styles
@@ -8,17 +8,21 @@ const pageStyles = {
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
+
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 410,
 }
+
 const headingAccentStyles = {
   color: "#663399",
 }
+
 const paragraphStyles = {
   marginBottom: 48,
 }
+
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
@@ -26,10 +30,12 @@ const codeStyles = {
   fontSize: "1.25rem",
   borderRadius: 4,
 }
+
 const listStyles = {
   marginBottom: 96,
   paddingLeft: 0,
 }
+
 const listItemStyles = {
   fontWeight: 300,
   fontSize: 24,
@@ -145,7 +151,7 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <title>Home Page</title>
       <h1 style={headingStyles}>
-        Congratulations
+        Contract interaction example
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby Web 3.0 site! </span>
         <span role="img" aria-label="Party popper emojis">
@@ -154,6 +160,9 @@ const IndexPage = () => {
       </h1>
       <p style={paragraphStyles}>
         Connected with <code style={codeStyles}>{address}</code>
+      </p>
+      <p style={paragraphStyles}>
+        Visit <Link style={linkStyle} to="/contract-example">Contract Example</Link> page for contract interaction example.
       </p>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
