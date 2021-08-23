@@ -153,7 +153,7 @@ const IndexPage = () => {
         </span>
       </h1>
       <p style={paragraphStyles}>
-        Connect with <code style={codeStyles}>{address}</code>
+        Connected with <code style={codeStyles}>{address}</code>
       </p>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
