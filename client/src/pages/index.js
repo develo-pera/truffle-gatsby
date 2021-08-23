@@ -1,4 +1,6 @@
 import * as React from "react"
+import {useContext, useEffect, useState} from "react";
+import {Web3Context} from "../components/LoadWeb3";
 
 // styles
 const pageStyles = {
@@ -9,7 +11,7 @@ const pageStyles = {
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
-  maxWidth: 320,
+  maxWidth: 410,
 }
 const headingAccentStyles = {
   color: "#663399",
@@ -127,17 +129,32 @@ const links = [
 
 // markup
 const IndexPage = () => {
+  const { web3 } = useContext(Web3Context);
+  const [address, setAddress] = useState(null);
+
+  const getAccount = async () => {
+    const accounts = await web3.eth.getAccounts();
+    setAddress(accounts[0]);
+  }
+
+  useEffect(() => {
+    getAccount();
+  }, [])
+
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
       <h1 style={headingStyles}>
         Congratulations
         <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
+        <span style={headingAccentStyles}>— you just made a Gatsby Web 3.0 site! </span>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
       </h1>
+      <p style={paragraphStyles}>
+        Connect with <code style={codeStyles}>{address}</code>
+      </p>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
         update in real-time.{" "}
@@ -145,6 +162,7 @@ const IndexPage = () => {
           😎
         </span>
       </p>
+      <p style={paragraphStyles}>Learn more about Gatsby below:</p>
       <ul style={listStyles}>
         <li style={docLinkStyle}>
           <a
